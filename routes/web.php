@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/category/{id}/update',[CategoryController::class,'update'])->name('category.update');
     Route::get('/category/{id}/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
 
+
+    //Notice
+    Route::get('/notice',[NoticeController::class,'index'])->name('notice.index');
+    Route::get('/notice/create',[NoticeController::class,'create'])->name('notice.create');
+    Route::post('/notice/store',[NoticeController::class,'store'])->name('notice.store');
+    Route::get('/notice/{id}/edit',[NoticeController::class,'edit'])->name('notice.edit');
+    Route::post('/notice/{id}/update',[NoticeController::class,'update'])->name('notice.update');
+    Route::get('/notice/{id}/destroy',[NoticeController::class,'destroy'])->name('notice.destroy');
 
 
 

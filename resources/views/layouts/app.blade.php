@@ -23,7 +23,7 @@
                 </div>
                 <div class="mt-5">
                     <a href="{{route('dashboard')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Dashboard</a>
-                    <a href="" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Notice</a>
+                    <a href="{{route('notice.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Notice</a>
                     <a href="{{route('category.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Category</a>
                     <a href="" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Blog</a>
                     <a href="" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Users</a>
