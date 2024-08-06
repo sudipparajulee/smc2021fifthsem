@@ -25,6 +25,7 @@ class NoticeController extends Controller
             'status' => 'required'
         ]);
 
+
         Notice::create($data);
         return redirect(route('notice.index'))->with('success','Notice Created Successfully');
     }
