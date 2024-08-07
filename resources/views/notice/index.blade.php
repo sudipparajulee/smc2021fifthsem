@@ -14,14 +14,16 @@
         <th class="border py-2">Status</th>
         <th class="border py-2">Action</th>
     </tr>
+    @foreach($notices as $notice)
     <tr>
-        <td class="border py-2">2024-08-06</td>
-        <td class="border py-2">This is a new notice</td>
-        <td class="border py-2">Show</td>
+        <td class="border py-2">{{$notice->notice_date}}</td>
+        <td class="border py-2">{{$notice->title}}</td>
+        <td class="border py-2">{{$notice->status}}</td>
         <td class="border py-2">
-            <a href="" class="px-2 py-1 bg-blue-600 rounded-lg text-white">Edit</a>
+            <a href="{{route('notice.edit',$notice->id)}}" class="px-2 py-1 bg-blue-600 rounded-lg text-white">Edit</a>
             <a href="" class="px-2 py-1 bg-red-600 rounded-lg text-white">Delete</a>
         </td>
     </tr>
+    @endforeach
 </table>
 @endsection

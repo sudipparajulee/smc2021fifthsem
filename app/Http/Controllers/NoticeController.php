@@ -9,7 +9,8 @@ class NoticeController extends Controller
 {
     public function index()
     {
-        return view('notice.index');
+        $notices = Notice::all();
+        return view('notice.index',compact('notices'));
     }
 
     public function create()
@@ -32,7 +33,8 @@ class NoticeController extends Controller
 
     public function edit($id)
     {
-
+        $notice = Notice::find($id);
+        return view('notice.edit',compact('notice'));
     }
 
     public function update(Request $request, $id)
