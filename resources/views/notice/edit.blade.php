@@ -14,11 +14,19 @@
         <span class="text-red-600 text-sm block -mt-5">{{$message}}</span>
     @enderror
     <select name="status" id="" class="block w-full my-5 rounded-lg border-gray-300">
-        <option value="Show">Show</option>
-        <option value="Hide">Hide</option>
+        <option value="Show"
+        @if($notice->status == 'Show')
+            selected
+        @endif
+        >Show</option>
+        <option value="Hide"
+        @if($notice->status == 'Hide')
+            selected
+        @endif
+        >Hide</option>
     </select>
     <div class="flex justify-center gap-3">
-        <button type="submit" class="bg-blue-600 text-white px-3 py-2 rounded-lg">Add Notice</button>
+        <button type="submit" class="bg-blue-600 text-white px-3 py-2 rounded-lg">Update Notice</button>
         <a href="{{route('notice.index')}}" class="bg-red-600 text-white px-10 py-2 rounded-lg ">Exit</a>
     </div>
 </form>

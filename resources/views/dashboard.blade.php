@@ -7,12 +7,12 @@
             <p class="text-4xl font-bold text-right">100</p>
         </div>
         <div class="bg-red-500 rounded-lg text-white p-5 shadow-lg">
-            <h2 class="text-2xl font-bold">Total Blogs</h2>
-            <p class="text-4xl font-bold text-right">200</p>
+            <h2 class="text-2xl font-bold">Total Notices</h2>
+            <p class="text-4xl font-bold text-right">{{$totalnotices}}</p>
         </div>
         <div class="bg-green-500 rounded-lg text-white p-5 shadow-lg">
             <h2 class="text-2xl font-bold">Total Categories</h2>
-            <p class="text-4xl font-bold text-right">10</p>
+    <p class="text-4xl font-bold text-right">{{$totalcategories}}</p>
         </div>
     </div>
 @endsection

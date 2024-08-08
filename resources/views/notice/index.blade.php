@@ -21,7 +21,7 @@
         <td class="border py-2">{{$notice->status}}</td>
         <td class="border py-2">
             <a href="{{route('notice.edit',$notice->id)}}" class="px-2 py-1 bg-blue-600 rounded-lg text-white">Edit</a>
-            <a href="" class="px-2 py-1 bg-red-600 rounded-lg text-white">Delete</a>
+            <a href="{{route('notice.destroy',$notice->id)}}" onclick="return confirm('Are you sure to Delete?')" class="px-2 py-1 bg-red-600 rounded-lg text-white">Delete</a>
         </td>
     </tr>
     @endforeach
