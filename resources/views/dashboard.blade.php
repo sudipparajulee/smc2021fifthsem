@@ -12,7 +12,7 @@
         </div>
         <div class="bg-green-500 rounded-lg text-white p-5 shadow-lg">
             <h2 class="text-2xl font-bold">Total Categories</h2>
-    <p class="text-4xl font-bold text-right">{{$totalcategories}}</p>
+            <p class="text-4xl font-bold text-right">{{$totalcategories}}</p>
         </div>
     </div>
 @endsection
