@@ -32,16 +32,27 @@ class ItemController extends Controller
 
     public function edit($id)
     {
-
+        $item = Item::find($id);
+        return view('items.edit',compact('item'));
     }
 
     public function update(Request $request, $id)
     {
+        $data = $request->validate([
+            'name' => 'required',
+            'rate' => 'required|integer',
+            'status' => 'required'
+        ]);
 
+        $item = Item::find($id);
+        $item->update($data);
+        return redirect(route('items.index'))->with('success','Item Updated Successfully');
     }
 
     public function destroy($id)
     {
-
+        $item = Item::find($id);
+        $item->delete();
+        return redirect(route('items.index'))->with('success','Item Deleted Successfully');
     }
 }

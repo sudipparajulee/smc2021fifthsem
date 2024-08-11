@@ -19,8 +19,8 @@
             <td class="border py-2">{{$item->rate}}</td>
             <td class="border py-2">{{$item->status}}</td>
             <td class="border py-2">
-                <a href="" class="px-2 py-1 bg-blue-600 rounded-lg text-white">Edit</a>
-                <a href="" class="px-2 py-1 bg-red-600 rounded-lg text-white" onclick="return confirm('Are you sure to Delete?')">Delete</a>
+                <a href="{{route('items.edit',$item->id)}}" class="px-2 py-1 bg-blue-600 rounded-lg text-white">Edit</a>
+                <a href="{{route('items.destroy',$item->id)}}" class="px-2 py-1 bg-red-600 rounded-lg text-white" onclick="return confirm('Are you sure to Delete?')">Delete</a>
             </td>
         </tr>
         @endforeach
