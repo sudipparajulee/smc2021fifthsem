@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/{id}/update',[ItemController::class,'update'])->name('items.update');
     Route::get('/items/{id}/destroy',[ItemController::class,'destroy'])->name('items.destroy');
 
+    //Package
+    Route::get('/packages',[PackageController::class,'index'])->name('packages.index');
+    Route::get('/packages/create',[PackageController::class,'create'])->name('packages.create');
+    Route::post('/packages/store',[PackageController::class,'store'])->name('packages.store');
+    Route::get('/packages/{id}/edit',[PackageController::class,'edit'])->name('packages.edit');
+    Route::post('/packages/{id}/update',[PackageController::class,'update'])->name('packages.update');
+    Route::get('/packages/{id}/destroy',[PackageController::class,'destroy'])->name('packages.destroy');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
