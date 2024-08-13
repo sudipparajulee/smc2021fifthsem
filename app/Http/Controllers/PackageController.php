@@ -20,17 +20,33 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+        ]);
 
+        Package::create($data);
+        return redirect()->route('packages.index')->with('success', 'Package created successfully.');
     }
 
     public function edit($id)
     {
-
+        $package = Package::find($id);
+        return view('packages.edit', compact('package'));
     }
 
     public function update(Request $request, $id)
     {
+        $data = $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+        ]);
 
+        $package = Package::find($id);
+        $package->update($data);
+        return redirect()->route('packages.index')->with('success', 'Package updated successfully.');
     }
 
     public function destroy($id)
