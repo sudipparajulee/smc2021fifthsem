@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
@@ -54,6 +55,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/packages/{id}/edit',[PackageController::class,'edit'])->name('packages.edit');
     Route::post('/packages/{id}/update',[PackageController::class,'update'])->name('packages.update');
     Route::get('/packages/{id}/destroy',[PackageController::class,'destroy'])->name('packages.destroy');
+
+    //Banner
+    Route::get('/banners',[BannerController::class,'index'])->name('banners.index');
+    Route::get('/banners/create',[BannerController::class,'create'])->name('banners.create');
+    Route::post('/banners/store',[BannerController::class,'store'])->name('banners.store');
+    Route::get('/banners/{id}/edit',[BannerController::class,'edit'])->name('banners.edit');
+    Route::post('/banners/{id}/update',[BannerController::class,'update'])->name('banners.update');
+    Route::get('/banners/{id}/destroy',[BannerController::class,'destroy'])->name('banners.destroy');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
