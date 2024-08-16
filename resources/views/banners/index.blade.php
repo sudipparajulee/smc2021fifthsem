@@ -3,6 +3,9 @@
     Banners
 @endsection
 @section('content')
+<div class="my-10 text-right">
+    <a href="{{route('banners.create')}}" class="px-4 py-2 bg-blue-600 rounded text-white">Add Banner</a>
+</div>
 <table class="w-full text-center">
     <tr>
         <th class="border py-2">Order</th>
