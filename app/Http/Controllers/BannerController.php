@@ -66,6 +66,7 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::find($id);
+        if(file_exists(public_path('images/banners/' . $banner->photopath)))
         unlink(public_path('images/banners/' . $banner->photopath));
         $banner->delete();
         return redirect()->route('banners.index')->with('success', 'Banner deleted successfully');

@@ -7,9 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
-    <nav class="flex px-20 py-2 bg-white justify-between items-center shadow-lg">
+    <nav class="flex px-20 py-2 bg-white justify-between items-center shadow-lg sticky top-0 z-30">
         <img src="{{asset('logo/logo.png')}}" alt="" class="h-16">
         <div class="flex gap-5">
             <a href="{{route('home')}}">Home</a>
