@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Item;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -23,5 +24,12 @@ class PagesController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function viewpackage($id)
+    {
+        $package = Package::find($id);
+        $items = Item::where('status','show')->get();
+        return view('viewpackage',compact('package','items'));
     }
 }

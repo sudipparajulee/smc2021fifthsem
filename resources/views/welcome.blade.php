@@ -25,7 +25,7 @@
             <p class="p-4 text-justify line-clamp-1">{{$package->description}}</p>
             {{-- Price  --}}
             <div class="text-center justify-between items-center p-4">
-                <a href="" class="bg-blue-50 text-blue-600 px-4 py-2 rounded-lg">Get Package</a>
+                <a href="{{route('viewpackage',$package->id)}}" class="bg-blue-50 text-blue-600 px-4 py-2 rounded-lg">Get Package</a>
             </div>
         </div>
         @endforeach

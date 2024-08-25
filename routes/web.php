@@ -18,6 +18,8 @@ Route::get('/', [PagesController::class,'home'])->name('home');
 Route::get('/about',[PagesController::class,'about'])->name('about');
 Route::get('/contact',[PagesController::class,'contact'])->name('contact');
 
+Route::get('/viewpackage/{id}',[PagesController::class,'viewpackage'])->name('viewpackage');
+
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
