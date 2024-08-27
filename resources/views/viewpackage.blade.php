@@ -12,7 +12,9 @@
         </div>
         <div class="border-l pl-2">
             <h3 class="font-bold text-xl">Available Items</h3>
-            <p><i class="ri-check-double-line"></i> Pulao</p>
+            @foreach($items as $item)
+            <p><i class="ri-check-double-line"></i> {{$item->name}}</p>
+            @endforeach
         </div>
     </div>
 @endsection

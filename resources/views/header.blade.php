@@ -24,7 +24,15 @@
             <a href="{{route('home')}}">Home</a>
             <a href="{{route('about')}}">About</a>
             <a href="{{route('contact')}}">Contact</a>
-            <a href="">Login</a>
+            @auth
+            <p>Hi, {{auth()->user()->name}}</p>
+            <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+            @else
+            <a href="{{route('login')}}">Login</a>
+            @endauth
         </div>
     </nav>
 

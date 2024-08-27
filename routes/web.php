@@ -20,9 +20,9 @@ Route::get('/contact',[PagesController::class,'contact'])->name('contact');
 
 Route::get('/viewpackage/{id}',[PagesController::class,'viewpackage'])->name('viewpackage');
 
-Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'isadmin'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','isadmin'])->group(function () {
 
     //Category
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');

@@ -29,7 +29,7 @@ class PagesController extends Controller
     public function viewpackage($id)
     {
         $package = Package::find($id);
-        $items = Item::where('status','show')->get();
+        $items = Item::where('status','Show')->get();
         return view('viewpackage',compact('package','items'));
     }
 }
