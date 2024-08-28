@@ -20,6 +20,10 @@ Route::get('/contact',[PagesController::class,'contact'])->name('contact');
 
 Route::get('/viewpackage/{id}',[PagesController::class,'viewpackage'])->name('viewpackage');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bookpackage/{id}',[PagesController::class,'bookpackage'])->name('bookpackage');
+});
+
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'isadmin'])->name('dashboard');
 
 Route::middleware(['auth','isadmin'])->group(function () {

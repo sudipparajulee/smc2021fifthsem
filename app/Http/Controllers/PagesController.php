@@ -32,4 +32,11 @@ class PagesController extends Controller
         $items = Item::where('status','Show')->get();
         return view('viewpackage',compact('package','items'));
     }
+
+    public function bookpackage($id)
+    {
+        $package = Package::find($id);
+        $items = Item::where('status','Show')->get();
+        return view('bookpackage',compact('package','items'));
+    }
 }

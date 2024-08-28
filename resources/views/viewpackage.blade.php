@@ -7,7 +7,7 @@
             <p class="text-gray-500">Rs. {{$package->price}}</p>
             <p class="text-justify mt-5">{{$package->description}}</p>
             <div class="mt-5">
-                <a href="" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Book Package</a>
+                <a href="{{route('bookpackage',$package->id)}}" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Book Package</a>
             </div>
         </div>
         <div class="border-l pl-2">

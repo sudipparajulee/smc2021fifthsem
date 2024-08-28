@@ -1,52 +1,31 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@extends('header')
+@section('content')
+    <div class="flex items-center justify-center mt-10">
+        <div class="w-96 bg-white p-6 rounded-lg shadow-lg border">
+            <h2 class="text-2xl font-bold text-center">Register</h2>
+            <form action="{{route('register')}}" method="POST" class="mt-6">
+                @csrf
+                <input type="text" name="name" placeholder="Name" class="w-full p-2 border border-gray-300 rounded-lg" value="{{old('name')}}">
+                @error('name')
+                    <span class="text-red-500 text-sm block mt-1">{{$message}}</span>
+                @enderror
+                <input type="email" name="email" placeholder="Email" class="w-full p-2 border border-gray-300 rounded-lg mt-3" value="{{old('email')}}">
+                @error('email')
+                    <span class="text-red-500 text-sm block mt-1">{{$message}}</span>
+                @enderror
+                <input type="password" name="password" placeholder="Password" class="w-full p-2 border border-gray-300 rounded-lg mt-3">
+                @error('password')
+                    <span class="text-red-500 text-sm block mt-1">{{$message}}</span>
+                @enderror
+                <input type="password" name="password_confirmation" placeholder="Confirm Password" class="w-full p-2 border border-gray-300 rounded-lg mt-3">
+                @error('password_confirmation')
+                    <span class="text-red-500 text-sm block mt-1">{{$message}}</span>
+                @enderror
+                <button type="submit" class="w-full bg-blue-600 text-white rounded-lg p-2 mt-3">Register</button>
+            </form>
+            <div class="text-center">
+                <p class="mt-3">Already have an account? <a href="{{route('login')}}" class="text-blue-600">Login</a></p>
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

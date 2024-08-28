@@ -15,6 +15,9 @@
                 @enderror
                 <button type="submit" class="w-full bg-blue-600 text-white rounded-lg p-2 mt-3">Login</button>
             </form>
+            <div class="text-center">
+                <p class="mt-3">Don't have an account? <a href="{{route('register')}}" class="text-blue-600">Register</a></p>
+            </div>
         </div>
     </div>
 @endsection
