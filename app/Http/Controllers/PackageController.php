@@ -24,6 +24,7 @@ class PackageController extends Controller
             'name' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'capacity' => 'required|integer',
         ]);
 
         Package::create($data);
@@ -42,6 +43,7 @@ class PackageController extends Controller
             'name' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'capacity' => 'required|integer',
         ]);
 
         $package = Package::find($id);

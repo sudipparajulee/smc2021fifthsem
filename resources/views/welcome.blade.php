@@ -22,6 +22,7 @@
             <h1 class="text-center mt-2 p-2 text-lg">{{$package->name}}</h1>
             <hr class="mx-4">
             <p class="text-2xl font-bold text-center mt-2">Rs. {{$package->price}}</p>
+            <p class="text-center">Capacity: {{$package->capacity}} Person</p>
             <p class="p-4 text-justify line-clamp-1">{{$package->description}}</p>
             {{-- Price  --}}
             <div class="text-center justify-between items-center p-4">

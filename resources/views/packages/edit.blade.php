@@ -17,6 +17,10 @@
         @error('price')
             <span class="text-red-600 text-sm block -mt-5">{{$message}}</span>
         @enderror
+        <input type="text" placeholder="Capacity (No of Person)" name="capacity" class="block w-full my-5 rounded-lg border-gray-300" value="{{$package->capacity}}">
+        @error('capacity')
+            <span class="text-red-600 text-sm block -mt-5">{{$message}}</span>
+        @enderror
         <div class="flex justify-center gap-3">
             <button type="submit" class="bg-blue-600 text-white px-3 py-2 rounded-lg">Update Package</button>
             <a href="{{route('packages.index')}}" class="bg-red-600 text-white px-10 py-2 rounded-lg ">Exit</a>
