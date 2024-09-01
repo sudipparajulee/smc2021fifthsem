@@ -8,7 +8,9 @@
             <p class="text-justify mt-5">{{$package->description}}</p>
         </div>
         <div class="col-span-3">
-            <form action="" class="grid grid-cols-3">
+            <form action="{{route('addtocart')}}" method="POST" class="grid grid-cols-3">
+                @csrf
+                <input type="hidden" name="package_id" value="{{$package->id}}">
                 <div class="col-span-2">
                     <h2 class="text-2xl font-semibold">Available Items</h2>
                     <div class="p-2 m-2">
@@ -30,9 +32,9 @@
                     <h2 class="text-2xl font-semibold pl-1 ml-2">Checkout</h2>
                     <div class="p-2 m-2">
                         <label for="people" class="ml-2">No of People</label>
-                        <input type="text" name="people" id="people" class="w-52 block border rounded p-1 ml-2" placeholder="Min {{$package->capacity*0.2}} and Max {{$package->capacity}}">
+                        <input type="text" name="no_of_people" id="people" class="w-52 block border rounded p-1 ml-2" placeholder="Min {{$package->capacity*0.2}} and Max {{$package->capacity}}">
                         <label for="date" class="ml-2">For Date</label>
-                        <input type="date" name="date" id="date" class="w-52 block border rounded p-1 ml-2" min="{{date('Y-m-d')}}">
+                        <input type="date" name="booking_date" id="date" class="w-52 block border rounded p-1 ml-2" min="{{date('Y-m-d')}}">
                     </div>
                     <button class="bg-blue-600 w-52 text-white px-4 py-2 rounded-lg mt-5 ml-5">Book Now</button>
                     <a href="{{route('viewpackage',$package->id)}}" class="bg-red-600 w-52 text-center text-white px-4 py-2 rounded-lg mt-5 ml-5">Exit</a>

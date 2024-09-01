@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
@@ -22,6 +23,8 @@ Route::get('/viewpackage/{id}',[PagesController::class,'viewpackage'])->name('vi
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/bookpackage/{id}',[PagesController::class,'bookpackage'])->name('bookpackage');
+
+    Route::post('/addtocart',[CartController::class,'store'])->name('addtocart');
 });
 
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'isadmin'])->name('dashboard');
