@@ -24,6 +24,7 @@ Route::get('/viewpackage/{id}',[PagesController::class,'viewpackage'])->name('vi
 Route::middleware(['auth'])->group(function () {
     Route::get('/bookpackage/{id}',[PagesController::class,'bookpackage'])->name('bookpackage');
 
+    Route::get('/cart',[CartController::class,'index'])->name('cart.index');
     Route::post('/addtocart',[CartController::class,'store'])->name('addtocart');
 });
 
