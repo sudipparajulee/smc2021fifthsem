@@ -25,11 +25,17 @@
             <a href="{{route('about')}}">About</a>
             <a href="{{route('contact')}}">Contact</a>
             @auth
-            <p>Hi, {{auth()->user()->name}}</p>
-            <form action="{{route('logout')}}" method="post">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
+            <div class="relative group">
+                <i class="ri-user-fill p-2 cursor-pointer bg-gray-100 rounded-full"></i>
+                <div class="absolute right-0 top-7 w-48 bg-gray-100 rounded-lg hidden group-hover:block">
+                    <p class="p-2 hover:bg-gray-200 cursor-pointer rounded-lg">Hi, {{auth()->user()->name}}</p>
+                    <a href="{{route('cart.index')}}" class="p-2 block hover:bg-gray-200 cursor-pointer rounded-lg">My Cart</a>
+                    <form action="{{route('logout')}}" method="post" class="p-2 hover:bg-gray-200 rounded-lg">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
             @else
             <a href="{{route('login')}}">Login</a>
             @endauth

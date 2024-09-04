@@ -16,7 +16,7 @@
             </tr>
             @foreach ($carts as $cart)
                 <tr>
-                    <td class="border px-4 py-2">{{ $cart->package_id }}</td>
+                    <td class="border px-4 py-2">{{ $cart->package->name }}</td>
                     <td class="border px-4 py-2">{{ $cart->booking_date }}</td>
                     <td class="border px-4 py-2">{{ $cart->no_of_people }}</td>
                     <td class="border px-4 py-2">{{ $cart->items }}</td>
