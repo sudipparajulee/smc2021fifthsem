@@ -19,10 +19,14 @@
                     <td class="border px-4 py-2">{{ $cart->package->name }}</td>
                     <td class="border px-4 py-2">{{ $cart->booking_date }}</td>
                     <td class="border px-4 py-2">{{ $cart->no_of_people }}</td>
-                    <td class="border px-4 py-2">{{ $cart->items }}</td>
-                    <td class="border px-4 py-2"></td>
-                    <td class="border px-4 py-2"></td>
-                    <td class="border px-4 py-2"></td>
+                    <td class="border px-4 py-2">
+                        @foreach ($cart->items as $item)
+                            <p>{{ $item }}</p>
+                        @endforeach
+                    </td>
+                    <td class="border px-4 py-2">Rs. {{$cart->package->price}}</td>
+                    <td class="border px-4 py-2">Rs. {{$cart->itemprice}}/plate</td>
+                    <td class="border px-4 py-2">Rs. {{$cart->package->price + $cart->itemprice * $cart->no_of_people}}</td>
                     <td class="border px-4 py-2 grid gap-2 justify-center">
                         <a href="" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Pay Now</a>
                         <a href="" class="bg-red-600 text-white px-4 py-2 rounded-lg">Remove</a>

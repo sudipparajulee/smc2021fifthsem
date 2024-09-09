@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Item;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,20 @@ class CartController extends Controller
     public function index()
     {
         $carts = Cart::where('user_id', auth()->id())->get();
+        foreach($carts as $cart)
+        {
+            $cart->allitems = explode(',', $cart->items);
+            $itemprice = 0;
+            $items = [];
+            foreach($cart->allitems as $item)
+            {
+                $a = Item::find($item);
+                $itemprice += $a->rate;
+                array_push($items, $a->name);
+            }
+            $cart->itemprice = $itemprice;
+            $cart->items = $items;
+        }
         return view('cart', compact('carts'));
     }
 
