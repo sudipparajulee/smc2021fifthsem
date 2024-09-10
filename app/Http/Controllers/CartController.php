@@ -54,4 +54,24 @@ class CartController extends Controller
 
 
     }
+
+    public function delete($id)
+    {
+        Cart::find($id)->delete();
+        return redirect()->route('cart.index')->with('success', 'Item removed from cart');
+    }
+
+    public function checkout($cartid)
+    {
+        $cart = Cart::find($cartid);
+        $allitems = explode(',', $cart->items);
+        $itemprice = 0;
+        foreach($allitems as $item)
+        {
+            $a = Item::find($item);
+            $itemprice += $a->rate;
+        }
+        $totalprice = $itemprice + $cart->package->price * $cart->no_of_people;
+        return view('checkout', compact('cart','totalprice'));
+    }
 }

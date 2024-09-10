@@ -1,5 +1,6 @@
 @extends('header')
 @section('content')
+@include('layouts.alert')
     <h2 class="font-bold text-3xl text-center my-5">My Cart</h2>
 
     <div class="px-24 mt-10">
@@ -28,8 +29,8 @@
                     <td class="border px-4 py-2">Rs. {{$cart->itemprice}}/plate</td>
                     <td class="border px-4 py-2">Rs. {{$cart->package->price + $cart->itemprice * $cart->no_of_people}}</td>
                     <td class="border px-4 py-2 grid gap-2 justify-center">
-                        <a href="" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Pay Now</a>
-                        <a href="" class="bg-red-600 text-white px-4 py-2 rounded-lg">Remove</a>
+                        <a href="{{route('checkout',$cart->id)}}" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Checkout</a>
+                        <a href="{{route('deletecart',$cart->id)}}" class="bg-red-600 text-white px-4 py-2 rounded-lg" onclick="return confirm('Are you sure to Remove Cart?')">Remove</a>
                     </td>
                 </tr>
             @endforeach
