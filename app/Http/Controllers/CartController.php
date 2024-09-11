@@ -71,7 +71,7 @@ class CartController extends Controller
             $a = Item::find($item);
             $itemprice += $a->rate;
         }
-        $totalprice = $itemprice + $cart->package->price * $cart->no_of_people;
+        $totalprice = $cart->package->price + $itemprice * $cart->no_of_people;
         return view('checkout', compact('cart','totalprice'));
     }
 }
