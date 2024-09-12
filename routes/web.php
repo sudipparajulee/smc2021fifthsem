@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/addtocart',[CartController::class,'store'])->name('addtocart');
     Route::get('/deletecart/{id}',[CartController::class,'delete'])->name('deletecart');
     Route::get('/checkout/{cartid}',[CartController::class,'checkout'])->name('checkout');
+
+    Route::post('/order/{cartid}/{totalprice}',[OrderController::class,'store'])->name('order.store');
 });
 
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth', 'isadmin'])->name('dashboard');
