@@ -28,6 +28,7 @@
                     <a href="{{route('items.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Items</a>
                     <a href="{{route('packages.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Packages</a>
                     <a href="{{route('banners.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Banners</a>
+                    <a href="{{route('orders.index')}}" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Orders</a>
                     <a href="" class="block px-2 py-3 hover:bg-blue-600 hover:text-white text-lg">Users</a>
                     <form action="{{route('logout')}}" method="POST">
                         @csrf

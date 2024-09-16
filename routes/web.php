@@ -79,6 +79,10 @@ Route::middleware(['auth','isadmin'])->group(function () {
     Route::post('/banners/{id}/update',[BannerController::class,'update'])->name('banners.update');
     Route::get('/banners/{id}/destroy',[BannerController::class,'destroy'])->name('banners.destroy');
 
+    //Orders
+    Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
+    Route::get('/orders/{id}/{status}',[OrderController::class,'status'])->name('orders.status');
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
