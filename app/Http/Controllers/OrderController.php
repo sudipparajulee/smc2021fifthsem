@@ -51,6 +51,8 @@ class OrderController extends Controller
         $order->status = $status;
         $order->save();
         $data = [
+            'name' => $order->user->name,
+            'package' => $order->package->name,
             'status' => $status,
         ];
         //send mail
