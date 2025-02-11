@@ -9,7 +9,20 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('priority')->get();
+        $categories = Category::all();
+        //sort categories by priority using bubble sort
+        for($i=0;$i<count($categories);$i++)
+        {
+            for($j=0;$j<count($categories)-$i-1;$j++)
+            {
+                if($categories[$j]->priority > $categories[$j+1]->priority)
+                {
+                    $temp = $categories[$j];
+                    $categories[$j] = $categories[$j+1];
+                    $categories[$j+1] = $temp;
+                }
+            }
+        }
         return view('category.index',compact('categories'));
     }
 
