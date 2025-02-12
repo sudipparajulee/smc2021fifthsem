@@ -39,4 +39,9 @@ class PagesController extends Controller
         $items = Item::where('status','Show')->get();
         return view('bookpackage',compact('package','items'));
     }
+
+    public function search(Request $request)
+    {
+        dd('ready to search');
+    }
 }
